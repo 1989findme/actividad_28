@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Company : <%= @company.name %> </h1>
+<h2> Employees </h2>
+<ul>
+  <% @company.employees.each do |employee| %>
+  <li>
+    <%= employee.first_name %>
+    <%= employee.last_name %>
+    <%= employee.email %>
+    <%= employee.area %>
+    <%= link_to "x", company_employee_path(@company, employee),
+method: :delete %>
+</li>
+  <% end %>
+</ul>
+
+<%= form_with(model: [ @company, @employee ], local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
