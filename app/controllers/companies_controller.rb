@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+    @area = Area.all
   end
 
   # GET /companies/1
@@ -12,6 +13,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @employee = Employee.new
+
   end
 
   # GET /companies/new

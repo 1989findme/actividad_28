@@ -1,4 +1,4 @@
 class Employee < ApplicationRecord
-  belongs_to :company
-  belongs_to :area
+  belongs_to :company, required: false
+  belongs_to :area, required: false
 end
